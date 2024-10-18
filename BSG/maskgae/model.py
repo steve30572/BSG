@@ -454,7 +454,7 @@ class MaskGAE(nn.Module):
             # entropy_value = (0.5 * torch.log((d * torch.pi * torch.exp(torch.tensor(1.0))) * torch.abs(det_cov) + 1e-10))
             # loss -= 1e-10 * (entropy_value)
 
-            ######### ReGS Part!
+            ######### BSG Part!
 
 
             z_unmask = self.encoder(x, masked_edges)
