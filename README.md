@@ -56,6 +56,8 @@ python train_link.py --dataset <dataset_name>
 
 <img width="403" alt="image" src="https://github.com/user-attachments/assets/030beb73-c022-4e18-b155-968329a48e9a">
 
+The image is the hyperparamter configuration, which corresponds to Table 6 in our paper.
+
 
 ### Node Classification
 example with Cora
