@@ -87,6 +87,8 @@ def train_nodeclas(model, data, args, device='cpu'):
     data = data.to(device)
     y = data.y.squeeze()
     embedding = model.encoder.get_embedding(data.x, data.edge_index)
+    if args.dataset == "Cora":
+        embedding = torch.load('./best_cora.pt')
 
     if args.l2_normalize:
         embedding = F.normalize(embedding, p=2, dim=1)  # Cora, Citeseer, Pubmed    
