@@ -2,8 +2,22 @@
 
 ## BSG introduces three loss functions.
 
-## The details of each loss function are included in the model.py 
-#### We utilized the implementation of the baseline MaskGAE as our backbone structure.
+## The details of each loss function are included in the model.py line 457 - 467.
+
+```py
+######### BSG Part!
+            z_unmask = self.encoder(x, masked_edges)
+            loss += alpha * F.mse_loss(z, z_unmask)
+
+            aggregated_message = self.mean_aggregator(z, edge_index=remaining_edges)
+            loss += beta * F.mse_loss(z, aggregated_message)
+
+            similarity_matrix_edge = self.cosine(z, aggregated_message)
+            loss += gamma * torch.mean(torch.relu(similarity_matrix_edge - margin))
+#### 
+```
+
+We utilized the implementation of the baseline MaskGAE as our backbone structure.
 
 
 ## Environment
